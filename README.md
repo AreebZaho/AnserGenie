@@ -1,1 +1,1 @@
-"# gemeni-clone" 
+"# gemini-clone" 
