@@ -7,6 +7,9 @@ export default {
 			colors: {
 				"gemini-gray": "#f0f4f9",
 			},
+			screens: {
+				xsm: "468px",
+			},
 		},
 	},
 	plugins: [],

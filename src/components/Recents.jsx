@@ -41,15 +41,7 @@ const Recents = () => {
 								toggleChatSettings();
 							}}
 						>
-							<i className="fa-solid fa-pen"></i>
-							<p>Rename</p>
-						</div>
-						<div
-							onClick={() => {
-								toggleChatSettings();
-							}}
-						>
-							<i className="fa-solid fa-trash"></i>
+							<i className="-mr-0.5 fa-solid fa-trash"></i>
 							<p>Delete</p>
 						</div>
 					</div>
