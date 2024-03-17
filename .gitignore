@@ -22,3 +22,24 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#todo
+animated loader + pulsating logo when fetching
+display answer with proper typing / line by line
+user + bot profile picture / line separated answer / question
+codeblocks different ui
+scrollable chat to prev chat
+question edit feature
+
+/localstorage: array of recent chats: (one recent chat: array of chat objects with question+answer)
+local storage array of 5 recent chats
+first chat title pushed to recent chats 
+current chat highlighted
+chat pinning, title edit, delete(refreshes current page if selected)
+selecting a different chat -> its content gets presented on the page
+
+new chat -> pushes current chat to recents adn new chat created with new chat title which changes when promt entered
+
+/search bar
+no editing/send on fetching or presentation of data
+can go to different chats and they run independently while the chat in which data being fetched represents the data

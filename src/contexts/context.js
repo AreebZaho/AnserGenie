@@ -1,6 +1,10 @@
 import {createContext, useContext} from "react";
 
 const Context = createContext({
+	darkTheme: "",
+	setDarkTheme: () => { },
+	windowWidth: "",
+	setWindowWidth: () => {},
 	sidebarExpanded: false,
 	setSidebarExpanded: () => { },
 	input: "",

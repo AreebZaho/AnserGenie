@@ -1,85 +1,88 @@
-import {
-	plus_icon,
-	question_icon,
-	history_icon,
-	setting_icon,
-} from "../assets/assets";
 import Recents from "./Recents";
 import {useContxt} from "../contexts/context";
 
 const Sidebar = () => {
-	const {sidebarExpanded} = useContxt();
+	const { darkTheme, setDarkTheme, windowWidth, sidebarExpanded } = useContxt();
+	
 	return (
-		<div className="absolute lg:relative">
-			<div
-				id="sidebar"
+		<div
+			id="sidebar"
+			className={
+				"h-screen bg-[#f0f4f9] absolute lg:relative duration pt-20 duration-300 transition-all max-lg:bg-transparent max-lg:backdrop-blur-lg max-lg:z-10 dark:text-white " +
+				(sidebarExpanded
+					? "w-[calc(75vw)] xs:w-[calc(60vw)] lg:w-[264px] pl-6"
+					: "pl-2 " + (windowWidth > 1024 ? "w-[68px]" : "w-0")) +
+				(windowWidth > 1024 ? " dark:bg-slate-700" : "")
+			}
+		>
+			<button
 				className={
-					"h-screen bg-gemini-gray relative duration pt-20 duration-300 transition-all max-lg:bg-transparent max-lg:backdrop-blur-lg max-lg:z-10 " +
+					"flex items-center gap-4 px-4 py-2 mb-8 font-semibold bg-gray-200 rounded-full dark:bg-gray-600 " +
 					(sidebarExpanded
-						? "w-[calc(75vw)] xsm:w-[calc(60vw)] lg:w-[264px] pl-6"
-						: "pl-1.5 " + (window.innerWidth > 1024 ? "w-[68px]" : "w-0"))
+						? ""
+						: "ml-[3.5px] " + (windowWidth > 1024 ? "" : "hidden"))
 				}
 			>
-				<button
-					className={
-						"flex items-center gap-4 px-4 py-2 mb-8 font-semibold bg-gray-200 rounded-full " +
-						(sidebarExpanded
-							? ""
-							: "ml-[3.5px] " + (window.innerWidth > 1024 ? "" : "hidden"))
-					}
-				>
-					<img src={plus_icon} alt="+" className="h-6" />
-					<p className={"text-nowrap " + (sidebarExpanded ? "" : "hidden")}>
-						New Chat
-					</p>
-				</button>
+				<i className="fa-solid fa-plus"></i>
+				<p className={"text-nowrap " + (sidebarExpanded ? "" : "hidden")}>
+					New Chat
+				</p>
+			</button>
 
-				<div className={sidebarExpanded ? "" : "hidden"}>
-					<p className="mb-4 ml-2 font-semibold">Recents</p>
-					<Recents />
-				</div>
+			<div className={sidebarExpanded ? "" : "hidden"}>
+				<p className="mb-4 ml-2 font-semibold">Recents</p>
+				<Recents />
+			</div>
 
-				<div
-					className={
-						"absolute bottom-16 flex flex-col gap-4 [&>div]:sidebar-options [&_p]:font-semibold [&_img]:h-6 " +
-						(!sidebarExpanded && window.innerWidth <= 1024 ? "hidden" : "")
-					}
-				>
-					<div>
-						<input type="checkbox" id="toggleDark" className="hidden" />
-						<label
-							htmlFor="toggleDark"
-							className="flex items-center gap-4 ml-1 cursor-pointer"
-							onClick={() => {
-								document.querySelector("html").classList.toggle("dark");
-							}}
+			<div
+				className={
+					"absolute bottom-[calc(2vh)] flex flex-col [&>div]:sidebar-options [&_p]:font-semibold [&_img]:h-6 " +
+					(!sidebarExpanded && windowWidth <= 1024 ? "hidden" : "")
+				}
+			>
+				<div onClick={() => setDarkTheme((prev) => !prev)}>
+					<input
+						type="checkbox"
+						id="toggleDark"
+						className="hidden"
+						onClick={() => setDarkTheme((prev) => !prev)}
+					/>
+					<label
+						htmlFor="toggleDark"
+						className="flex items-center gap-4 ml-0.5 cursor-pointer"
+					>
+						<i className="flex items-center text-xl fa-solid fa-moon"></i>
+						<p className={"text-nowrap " + (sidebarExpanded ? "" : "hidden")}>
+							Dark Theme
+						</p>
+						<span
+							id="toggleDarkSlider"
+							className={
+								"relative inline-block w-10 h-6 transition-colors duration-300 bg-gray-300 rounded-full " +
+								(sidebarExpanded ? "" : "hidden ") +
+								(darkTheme ? "bg-slate-900" : "")
+							}
 						>
-							<i className="flex items-center text-xl fa-solid fa-moon"></i>
-							<p className={"text-nowrap " + (sidebarExpanded ? "" : "hidden")}>
-								Dark Theme
-							</p>
 							<span
 								className={
-									"relative inline-block w-10 h-6 transition-colors duration-300 bg-gray-300 rounded-full " +
-									(sidebarExpanded ? "" : "hidden")
+									"absolute w-4 h-4 transition-transform duration-300 transform bg-white rounded-full shadow-md top-1 left-1 " +
+									(darkTheme ? "translate-x-4" : "")
 								}
-							>
-								<span className="absolute w-4 h-4 transition-transform duration-300 transform translate-x-0 bg-white rounded-full shadow-md top-1 left-1"></span>
-							</span>
-						</label>
-					</div>
-					<div>
-						<img src={question_icon} alt="" />
-						<p className={sidebarExpanded ? "" : "hidden"}>Help</p>
-					</div>
-					<div>
-						<img src={history_icon} alt="" />
-						<p className={sidebarExpanded ? "" : "hidden"}>Activity</p>
-					</div>
-					<div>
-						<img src={setting_icon} alt="" />
-						<p className={sidebarExpanded ? "" : "hidden"}>Settings</p>
-					</div>
+							></span>
+						</span>
+					</label>
+				</div>
+				<div>
+					<i className="text-xl fa-regular fa-circle-question"></i>
+					<p className={sidebarExpanded ? "" : "hidden"}>Help</p>
+				</div>
+				<div>
+					<i className="text-xl fa-solid fa-clock-rotate-left"></i>
+					<p className={sidebarExpanded ? "" : "hidden"}>Activity</p>
+				</div>
+				<div>
+					<i className="text-xl fa-solid fa-gear"></i>
+					<p className={sidebarExpanded ? "" : "hidden"}>Settings</p>
 				</div>
 			</div>
 		</div>
