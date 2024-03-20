@@ -6,6 +6,8 @@ import Chat from "./Chat";
 const Page = () => {
 	const {windowWidth, sidebarExpanded, setSidebarExpanded} = useContxt();
 
+	// let chat = [];
+
 	return (
 		<>
 			<i
@@ -32,7 +34,9 @@ const Page = () => {
 								AnserGenie
 							</p>
 						</a>
-						<div className="flex gap-4 pt-1 [&_a]:flex [&_a]:items-center [&_a]:justify-center [&>a]:h-5 [&>a]:aspect-square justify-center">
+					</div>
+					<div className="flex items-center gap-4 xs:gap-6">
+						<div className="flex gap-4 [&_a]:flex [&_a]:items-center [&_a]:justify-center [&>a]:h-5 [&>a]:aspect-square justify-center">
 							<a
 								href="https://www.linkedin.com/in/areebzahoori/"
 								target="_blank"
@@ -43,15 +47,13 @@ const Page = () => {
 								<i className="fa-brands fa-github"></i>
 							</a>
 						</div>
+						<i className="h-8 text-2xl rounded-full fa-solid fa-user"></i>
 					</div>
-					<i className="h-8 text-2xl rounded-full fa-solid fa-user"></i>
 				</header>
 
 				<Chat />
 
-				<div className="absolute flex flex-col items-center w-full px-4 bottom-4">
-					<Search />
-				</div>
+				<Search />
 			</div>
 		</>
 	);

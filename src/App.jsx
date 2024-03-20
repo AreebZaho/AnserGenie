@@ -29,7 +29,11 @@ function App() {
 	);
 	const [input, setInput] = useState("");
 	const [chatStarted, setChatStarted] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const [result, setResult] = useState("");
+
+	const [chat, setChat] = useState([]);
+	const [chats, setChats] = useState([]);
 
 	return (
 		<ContextProvider
@@ -44,8 +48,14 @@ function App() {
 				setInput,
 				chatStarted,
 				setChatStarted,
+				loading,
+				setLoading,
 				result,
 				setResult,
+				chat,
+				setChat,
+				chats,
+				setChats,
 			}}
 		>
 			<div className="flex w-screen dark:bg-slate-900">

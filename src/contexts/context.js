@@ -2,17 +2,23 @@ import {createContext, useContext} from "react";
 
 const Context = createContext({
 	darkTheme: "",
-	setDarkTheme: () => { },
+	setDarkTheme: () => {},
 	windowWidth: "",
 	setWindowWidth: () => {},
 	sidebarExpanded: false,
-	setSidebarExpanded: () => { },
+	setSidebarExpanded: () => {},
 	input: "",
-	setInput: () => { },
+	setInput: () => {},
 	chatStarted: "",
-	setChatStarted: () => { },
-	result : "",
-	setResult: () => { },
+	setChatStarted: () => {},
+	loading: "",
+	setLoading: () => {},
+	result: "",
+	setResult: () => {},
+	chat: [],
+	setChat: () => {},
+	chats: [],
+	setChats: () => {},
 });
 
 const ContextProvider = Context.Provider;

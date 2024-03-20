@@ -1,15 +1,20 @@
 import {useContxt} from "../contexts/context";
 import Card from "./Card";
 import cardDetails from "../constants/cardDetails";
+import Message from "./Message";
 
 const Chat = () => {
-	const {chatStarted} = useContxt();
+	const {chatStarted, loading, chat} = useContxt();
 
 	return (
-		<div className="flex flex-col items-center w-full gap-12 m-auto xl:gap-20 dark:bg-slate-900">
+		<div
+			className={
+				"flex flex-col items-center w-full m-auto xl:gap-20 dark:bg-slate-900 " +
+				(chatStarted ? "gap-12" : "gap-6")
+			}
+		>
 			{!chatStarted ? (
 				<>
-					{" "}
 					<p className="font-sans text-3xl xs:text-4xl md:text-5xl font-semibold leading-tight text-[#757675] px-6 dark:text-slate-100">
 						<span className="welcome-heading">Hello </span>👋
 						<br />
@@ -22,7 +27,9 @@ const Chat = () => {
 					</div>{" "}
 				</>
 			) : (
-				<div>started</div>
+				chat.map(({isQuestion, text}, index) => {
+					return <Message key={index} isQuestion={isQuestion} text={text} />;
+				})
 			)}
 		</div>
 	);
