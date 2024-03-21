@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Loader from "./Loader";
 import {useContxt} from "../contexts/context";
 
-const Message = ({isQuestion, text}) => {
+export default function Message({isQuestion, text}) {
 	const {loading} = useContxt();
 
 	return (
@@ -13,16 +13,17 @@ const Message = ({isQuestion, text}) => {
 					<i className="text-lg fa-solid fa-user"></i>
 				</div>
 			) : (
-				<img src={logo} className="h-6" />
+				<img
+					src={logo}
+					className={"h-6 " + (loading ? "animate-bounce" : "")}
+				/>
 			)}
-			<p className="dark:text-white">{loading ? <Loader /> : text}</p>
+			{text ? <p className="dark:text-white">{text}</p> : <Loader />}
 		</div>
 	);
-};
+}
 
 Message.propTypes = {
 	isQuestion: PropTypes.bool,
 	text: PropTypes.string,
 };
-
-export default Message;

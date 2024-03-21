@@ -2,7 +2,7 @@ import {useContxt} from "../contexts/context";
 import runChat from "../config/gemini";
 import {useId} from "react";
 
-const Search = () => {
+export default function Search() {
 	const {
 		input,
 		setInput,
@@ -36,19 +36,20 @@ const Search = () => {
 						onClick={async (e) => {
 							e.preventDefault();
 							if (!input) return;
-							const answerId = Date.now();
 							setChatStarted(1);
 							setChat((prevChats) => [
 								...prevChats,
 								{isQuestion: true, text: input},
-								{isQuestion: false, id: answerId},
+								{isQuestion: false, text: ""},
 							]);
 							setInput("");
 							setLoading(true);
 							const answer = await runChat(input);
 							setChat((prevChats) =>
-								prevChats.map((chat) =>
-									chat.id === answerId ? {...chat, text: answer} : chat
+								prevChats.map((chat, index) =>
+									index === prevChats.length - 1
+										? {...chat, text: answer}
+										: chat
 								)
 							);
 							setLoading(false);
@@ -60,6 +61,4 @@ const Search = () => {
 			</label>
 		</div>
 	);
-};
-
-export default Search;
+}

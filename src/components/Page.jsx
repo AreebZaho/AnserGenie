@@ -3,7 +3,7 @@ import Search from "./Search";
 import {useContxt} from "../contexts/context";
 import Chat from "./Chat";
 
-const Page = () => {
+export default function Page() {
 	const {windowWidth, sidebarExpanded, setSidebarExpanded} = useContxt();
 
 	// let chat = [];
@@ -21,7 +21,7 @@ const Page = () => {
 			></i>
 
 			<div className="relative flex-1 h-screen">
-				<header className="flex justify-between w-full p-4 mb-8 dark:bg-slate-900">
+				<header className="flex justify-between w-full px-4 py-3 mb-1 dark:bg-slate-900">
 					<div
 						className={
 							"flex items-center gap-2 text-lg " +
@@ -30,7 +30,15 @@ const Page = () => {
 					>
 						<a href="/" className="flex items-center gap-2">
 							<img src={logo} alt="" className="h-6" />
-							<p className="font-semibold xs:mr-8 text-slate-600 site-name">
+							<p
+								className="font-semibold xs:mr-8 text-slate-600"
+								style={{
+									background:
+										"-webkit-linear-gradient(16deg, #4b90ff, #ff5546)",
+									WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+								}}
+							>
 								AnserGenie
 							</p>
 						</a>
@@ -57,6 +65,4 @@ const Page = () => {
 			</div>
 		</>
 	);
-};
-
-export default Page;
+}

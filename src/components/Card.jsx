@@ -1,6 +1,6 @@
 import {useContxt} from "../contexts/context";
 
-const Card = ({title, icon}) => {
+export default function Card({title, icon}) {
 	const {setInput} = useContxt();
 
 	return (
@@ -16,6 +16,4 @@ const Card = ({title, icon}) => {
 			</div>
 		</div>
 	);
-};
-
-export default Card;
+}

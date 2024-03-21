@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 import Page from "./components/Page";
 import {ContextProvider} from "./contexts/context";
 
-function App() {
+export default function App() {
 	const [darkTheme, setDarkTheme] = useState(false);
 	useEffect(() => {
 		const darkActive = localStorage.getItem("darkActive");
@@ -65,5 +65,3 @@ function App() {
 		</ContextProvider>
 	);
 }
-
-export default App;

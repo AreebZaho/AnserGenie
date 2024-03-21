@@ -3,10 +3,8 @@
 @tailwind utilities;
 
 @layer components {
-	.site-name {
-		background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
+	i {
+		@apply flex items-center dark:text-white;
 	}
 	.recent-chat-settings-item {
 		@apply flex items-center gap-4 px-2 py-1 text-sm font-semibold rounded-lg cursor-pointer dark:hover:text-black;
@@ -17,7 +15,12 @@
 }
 
 @layer utilities {
-	i {
-		@apply flex items-center dark:text-white;
+	@keyframes loader {
+		0% {
+			background-position: -800px 0;
+		}
+		100% {
+			background-position: 800px 0;
+		}
 	}
 }

@@ -3,15 +3,16 @@ import Card from "./Card";
 import cardDetails from "../constants/cardDetails";
 import Message from "./Message";
 
-const Chat = () => {
+export default function Chat() {
 	const {chatStarted, loading, chat} = useContxt();
 
 	return (
 		<div
 			className={
-				"flex flex-col items-center w-full m-auto xl:gap-20 dark:bg-slate-900 " +
-				(chatStarted ? "gap-12" : "gap-6")
+				"flex flex-col items-center w-full m-auto dark:bg-slate-900 max-h-[calc(85%)] overflow-y-auto " +
+				(!chatStarted ? "gap-12 xl:gap-20" : "gap-4")
 			}
+			style={{scrollbarColor: "transparent"}}
 		>
 			{!chatStarted ? (
 				<>
@@ -33,6 +34,4 @@ const Chat = () => {
 			)}
 		</div>
 	);
-};
-
-export default Chat;
+}
