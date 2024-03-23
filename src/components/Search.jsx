@@ -17,7 +17,9 @@ export default function Search() {
 
 	return (
 		<div className="absolute flex flex-col items-center w-full px-4 bottom-4">
+			<div className="w-full max-w-[830px] h-12 fade-above-search-light dark:fade-above-search-dark"></div>
 			<label
+				id="search"
 				htmlFor={inputId}
 				className="bg-[#f0f4f9] rounded-full w-full max-w-[830px] px-6 py-3 flex-1 shadow-md dark:bg-slate-600"
 			>

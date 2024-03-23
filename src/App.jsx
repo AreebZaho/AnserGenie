@@ -25,7 +25,7 @@ export default function App() {
 	window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
 
 	const [sidebarExpanded, setSidebarExpanded] = useState(
-		windowWidth > 1024 ? true : false
+		windowWidth > 1280 ? true : false
 	);
 	const [input, setInput] = useState("");
 	const [chatStarted, setChatStarted] = useState(false);

@@ -2,8 +2,8 @@ import Recents from "./Recents";
 import {useContxt} from "../contexts/context";
 
 const Sidebar = () => {
-	const { darkTheme, setDarkTheme, windowWidth, sidebarExpanded } = useContxt();
-	
+	const {darkTheme, setDarkTheme, windowWidth, sidebarExpanded} = useContxt();
+
 	return (
 		<div
 			id="sidebar"
@@ -36,7 +36,7 @@ const Sidebar = () => {
 
 			<div
 				className={
-					"absolute bottom-[calc(2vh)] flex flex-col [&>div]:sidebar-options [&_p]:font-semibold [&_img]:h-6 " +
+					"absolute bottom-[calc(2vh)] flex flex-col [&>div]:sidebar-option [&_p]:font-semibold [&_img]:h-6 " +
 					(!sidebarExpanded && windowWidth <= 1024 ? "hidden" : "")
 				}
 			>

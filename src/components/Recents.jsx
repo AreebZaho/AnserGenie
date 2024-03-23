@@ -25,7 +25,7 @@ const Recents = () => {
 
 					<div
 						id={chatSettingsId}
-						className="absolute z-10 -top-1 left-12 p-2 rounded-lg hidden flex-col gap-6 shadow-xl bg-white [&>div]:recent-chat-settings-item [&_i]:text-sm dark:bg-slate-700"
+						className="absolute z-10 -top-1 left-12 p-2 rounded-lg hidden flex-col gap-6 shadow-xl bg-white [&>div]:recent-chat-settings-option [&_i]:text-sm dark:bg-slate-700"
 					>
 						<div
 							className="hover:bg-blue-200"

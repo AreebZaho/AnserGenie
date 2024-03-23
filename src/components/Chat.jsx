@@ -12,7 +12,6 @@ export default function Chat() {
 				"flex flex-col items-center w-full m-auto dark:bg-slate-900 max-h-[calc(85%)] overflow-y-auto " +
 				(!chatStarted ? "gap-12 xl:gap-20" : "gap-4")
 			}
-			style={{scrollbarColor: "transparent"}}
 		>
 			{!chatStarted ? (
 				<>

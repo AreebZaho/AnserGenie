@@ -10,7 +10,7 @@ export default function Card({title, icon}) {
 				setInput(title);
 			}}
 		>
-			{<p className="max-xs:text-xs dark:text-white">{title}</p>}
+			{<code className="max-xs:text-xs dark:text-white">{title}</code>}
 			<div className="absolute flex items-center justify-center w-8 h-8 p-1 bg-white rounded-full bottom-3 right-3 xs:bottom-6 xs:right-6 aspect-square dark:bg-slate-500">
 				<i className={icon + " text-xl"}></i>
 			</div>
