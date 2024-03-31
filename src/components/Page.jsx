@@ -4,15 +4,14 @@ import {useContxt} from "../contexts/context";
 import Chat from "./Chat";
 
 export default function Page() {
-	const {windowWidth, sidebarExpanded, setSidebarExpanded} = useContxt();
-
-	// let chat = [];
+	const {chatStarted, windowWidth, sidebarExpanded, setSidebarExpanded} =
+		useContxt();
 
 	return (
 		<>
 			<i
 				className={
-					"absolute z-10 h-6 text-xl cursor-pointer fa-solid top-5 left-6 " +
+					"absolute z-10 h-6 text-xl cursor-pointer fa-solid top-4 left-6 " +
 					(sidebarExpanded ? "fa-close" : "fa-bars")
 				}
 				onClick={() => {
@@ -21,7 +20,12 @@ export default function Page() {
 			></i>
 
 			<div className="relative flex-1 h-screen">
-				<header className="flex justify-between w-full px-4 py-3 mb-1 dark:bg-slate-900">
+				<header
+					className={
+						"flex justify-between w-full px-4 py-3 dark:bg-slate-800 shadow-md " +
+						(chatStarted ? "" : "mb-6")
+					}
+				>
 					<div
 						className={
 							"flex items-center gap-2 text-lg " +

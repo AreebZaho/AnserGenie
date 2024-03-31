@@ -2,14 +2,21 @@ import {useContxt} from "../contexts/context";
 import Card from "./Card";
 import cardDetails from "../constants/cardDetails";
 import Message from "./Message";
+import {useEffect} from "react";
 
 export default function Chat() {
-	const {chatStarted, loading, chat} = useContxt();
+	const {chatStarted, messages, messagesCount} = useContxt();
+
+	useEffect(() => {
+		document.getElementById("chat").scrollTop =
+			document.getElementById("chat").scrollHeight;
+	}, [messagesCount]);
 
 	return (
 		<div
+			id="chat"
 			className={
-				"flex flex-col items-center w-full m-auto dark:bg-slate-900 max-h-[calc(85%)] overflow-y-auto " +
+				"pt-4 flex flex-col items-center w-full m-auto dark:bg-slate-900 overflow-y-auto scroll-smooth h-chatHeight " +
 				(!chatStarted ? "gap-12 xl:gap-20" : "gap-4")
 			}
 		>
@@ -27,8 +34,15 @@ export default function Chat() {
 					</div>{" "}
 				</>
 			) : (
-				chat.map(({isQuestion, text}, index) => {
-					return <Message key={index} isQuestion={isQuestion} text={text} />;
+				messages.map(({question, answer, last}, index) => {
+					return (
+						<Message
+							key={index}
+							question={question}
+							answer={answer}
+							last={last}
+						/>
+					);
 				})
 			)}
 		</div>

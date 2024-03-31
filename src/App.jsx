@@ -29,10 +29,12 @@ export default function App() {
 	);
 	const [input, setInput] = useState("");
 	const [chatStarted, setChatStarted] = useState(false);
-	const [loading, setLoading] = useState(false);
-	const [result, setResult] = useState("");
 
-	const [chat, setChat] = useState([]);
+	const [answer, setAnswer] = useState("");
+	const [loadingAns, setLoadingAns] = useState(false);
+
+	const [messages, setMessages] = useState([]);
+	const [messagesCount, setMessagesCount] = useState(0);
 	const [chats, setChats] = useState([]);
 
 	return (
@@ -48,12 +50,14 @@ export default function App() {
 				setInput,
 				chatStarted,
 				setChatStarted,
-				loading,
-				setLoading,
-				result,
-				setResult,
-				chat,
-				setChat,
+				answer,
+				setAnswer,
+				loadingAns,
+				setLoadingAns,
+				messages,
+				setMessages,
+				messagesCount,
+				setMessagesCount,
 				chats,
 				setChats,
 			}}

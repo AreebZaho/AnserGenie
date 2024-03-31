@@ -7,7 +7,7 @@
 		@apply flex items-center dark:text-white;
 	}
 	::-webkit-scrollbar {
-		width: 6px;
+		@apply w-1 sm:w-1.5;
 	}
 	::-webkit-scrollbar-track {
 		background: transparent;
@@ -15,9 +15,6 @@
 	::-webkit-scrollbar-thumb {
 		background-color: #c5c8cb;
 		border-radius: 9999px;
-	}
-	code {
-		@apply px-2 py-1 rounded-md bg-slate-300;
 	}
 }
 

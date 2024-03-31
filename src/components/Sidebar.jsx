@@ -3,16 +3,16 @@ import {useContxt} from "../contexts/context";
 
 const Sidebar = () => {
 	const {darkTheme, setDarkTheme, windowWidth, sidebarExpanded} = useContxt();
-
 	return (
 		<div
 			id="sidebar"
 			className={
-				"h-screen bg-[#f0f4f9] absolute lg:relative duration pt-20 duration-300 transition-all max-lg:bg-transparent max-lg:backdrop-blur-lg max-lg:z-10 dark:text-white " +
+				"h-screen absolute lg:relative duration pt-20 duration-300 transition-all max-lg:z-10 dark:text-white lg:dark:bg-slate-700 bg-transparent backdrop-blur-lg lg:bg-[#f0f4f9] " +
 				(sidebarExpanded
-					? "w-[calc(75vw)] xs:w-[calc(60vw)] lg:w-[264px] pl-6"
-					: "pl-2 " + (windowWidth > 1024 ? "w-[68px]" : "w-0")) +
-				(windowWidth > 1024 ? " dark:bg-slate-700" : "")
+					? "w-[calc(85vw)] xs:w-[calc(60vw)] lg:w-[264px] pl-6"
+					: windowWidth > 1024
+					? "w-[68px] pl-2"
+					: "w-0")
 			}
 		>
 			<button
