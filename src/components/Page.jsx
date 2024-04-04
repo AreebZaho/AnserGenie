@@ -55,7 +55,7 @@ export default function Page() {
 							>
 								<i className="fa-brands fa-linkedin"></i>
 							</a>
-							<a href="https://github.com/AreebZaho" target="_blank">
+							<a href="https://github.com/AreebZaho/AnserGenie" target="_blank">
 								<i className="fa-brands fa-github"></i>
 							</a>
 						</div>
