@@ -4,6 +4,15 @@ import Page from "./components/Page";
 import {ContextProvider} from "./contexts/context";
 
 export default function App() {
+	document.addEventListener("click", (e) => {
+		if (
+			windowWidth <= 1024 &&
+			!document.getElementById("sidebar").contains(e.target) &&
+			document.getElementById("hamburger") !== e.target
+		)
+			setSidebarExpanded(false);
+	});
+
 	const [darkTheme, setDarkTheme] = useState(
 		localStorage.getItem("darkActive") &&
 			localStorage.getItem("darkActive") === "true"
@@ -81,7 +90,7 @@ export default function App() {
 		setActiveChatIndex(0);
 		setMessages([]);
 		setChats((allChats) => [{title: "", msgs: [], pinned: false}, ...allChats]);
-		document.querySelector(".search").focus();
+		if (windowWidth > 1024) document.querySelector(".search").focus();
 	};
 
 	const [pinnedChatsCount, setPinnedChatsCount] = useState(
