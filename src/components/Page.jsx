@@ -10,6 +10,7 @@ export default function Page() {
 	return (
 		<div className="flex flex-1">
 			<i
+				id="hamburger"
 				className={
 					"absolute z-10 h-6 text-xl cursor-pointer fa-solid top-4 left-6 " +
 					(sidebarExpanded ? "fa-close" : "fa-bars")

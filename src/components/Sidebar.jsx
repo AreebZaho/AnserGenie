@@ -19,6 +19,7 @@ export default function Sidebar() {
 
 	return (
 		<div
+			id="sidebar"
 			className={
 				"absolute z-10 flex flex-col items-center gap-5 h-screen lg:relative duration pt-16 duration-300 transition-all max-lg:z-10 dark:text-white dark:bg-slate-700 bg-[#e1e5eb] lg:bg-[#f0f4f9] max-lg:rounded-r-2xl " +
 				(sidebarExpanded
