@@ -1,14 +1,14 @@
 import logo from "../assets/logo.png";
 import Search from "./Search";
 import {useContxt} from "../contexts/context";
-import Chat from "./Chat";
+import ActiveChat from "./ActiveChat";
 
 export default function Page() {
 	const {chatStarted, windowWidth, sidebarExpanded, setSidebarExpanded} =
 		useContxt();
 
 	return (
-		<>
+		<div className="flex flex-1">
 			<i
 				className={
 					"absolute z-10 h-6 text-xl cursor-pointer fa-solid top-4 left-6 " +
@@ -62,11 +62,9 @@ export default function Page() {
 						<i className="h-8 text-2xl rounded-full fa-solid fa-user"></i>
 					</div>
 				</header>
-
-				<Chat />
-
+				<ActiveChat />
 				<Search />
 			</div>
-		</>
+		</div>
 	);
 }

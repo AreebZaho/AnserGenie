@@ -7,7 +7,7 @@
 		@apply flex items-center dark:text-white;
 	}
 	::-webkit-scrollbar {
-		@apply w-1 sm:w-1.5;
+		@apply w-[2.5px] sm:w-1.5;
 	}
 	::-webkit-scrollbar-track {
 		background: transparent;
@@ -19,15 +19,21 @@
 }
 
 @layer components {
-	.recent-chat-settings-option {
+	.chat-list-settings-option {
 		@apply flex items-center gap-4 px-2 py-1 text-sm font-semibold rounded-lg cursor-pointer dark:hover:text-black;
-	}
-	.sidebar-option {
-		@apply flex gap-4 px-4 py-2 rounded-full cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-600;
 	}
 }
 
 @layer utilities {
+	#chatList::-webkit-scrollbar {
+		@apply w-[2.5px];
+	}
+	.chatListTitle::-webkit-scrollbar {
+		@apply h-[3px];
+	}
+	.chatListTitle::-webkit-scrollbar-thumb {
+		background-color: rgba(0, 0, 0, 0.503);
+	}
 	.fade-above-search-light {
 		background: linear-gradient(
 			to bottom,

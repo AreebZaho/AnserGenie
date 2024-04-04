@@ -6,6 +6,7 @@ export default {
 		extend: {
 			screens: {
 				xs: "468px",
+				xxs:"396px",
 			},
 			height: {
 				chatHeight: "calc(100vh - 116px)",

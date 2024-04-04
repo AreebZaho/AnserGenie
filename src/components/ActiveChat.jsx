@@ -4,8 +4,8 @@ import cardDetails from "../constants/cardDetails";
 import Message from "./Message";
 import {useEffect} from "react";
 
-export default function Chat() {
-	const {chatStarted, messages, messagesCount} = useContxt();
+export default function ActiveChat() {
+	const {messages, messagesCount} = useContxt();
 
 	useEffect(() => {
 		document.getElementById("chat").scrollTop =
@@ -16,11 +16,11 @@ export default function Chat() {
 		<div
 			id="chat"
 			className={
-				"pt-4 flex flex-col items-center w-full m-auto dark:bg-slate-900 overflow-y-auto scroll-smooth h-chatHeight " +
-				(!chatStarted ? "gap-12 xl:gap-20" : "gap-4")
+				"flex flex-col items-center w-full m-auto lg:px-4 overflow-y-auto scroll-smooth h-chatHeight " +
+				(!messagesCount ? "gap-12 xl:gap-20" : "gap-4")
 			}
 		>
-			{!chatStarted ? (
+			{!messagesCount ? (
 				<>
 					<p className="font-sans text-3xl xs:text-4xl md:text-5xl font-semibold leading-tight text-[#757675] px-6 dark:text-slate-100">
 						<span className="welcome-heading">Hello </span>👋
@@ -34,16 +34,15 @@ export default function Chat() {
 					</div>{" "}
 				</>
 			) : (
-				messages.map(({question, answer, last}, index) => {
-					return (
-						<Message
-							key={index}
-							question={question}
-							answer={answer}
-							last={last}
-						/>
-					);
-				})
+				messages.map(({question, answer, last, populationDone}, index) => (
+					<Message
+						key={index}
+						question={question}
+						answer={answer}
+						last={last}
+						populationDone={populationDone}
+					/>
+				))
 			)}
 		</div>
 	);
