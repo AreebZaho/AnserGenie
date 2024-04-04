@@ -2,7 +2,7 @@ import {useEffect, useState, useRef} from "react";
 import PropTypes from "prop-types";
 import {useContxt} from "../contexts/context";
 
-export default function ChatListItem({index}) {
+export default function ChatListItem({ index }) {
 	const {
 		loadingRes,
 		messages,

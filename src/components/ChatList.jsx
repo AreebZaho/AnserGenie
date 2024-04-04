@@ -5,7 +5,7 @@ import ChatListItem from "./ChatListItem";
 export default function ChatList({title}) {
 	const {sidebarExpanded, chats} = useContxt();
 
-	const pinnedList = title === "Pinned";
+	const pinned = title === "Pinned";
 
 	return (
 		<>
@@ -19,11 +19,10 @@ export default function ChatList({title}) {
 					(sidebarExpanded ? "" : "hidden")
 				}
 			>
-				{chats
-					.filter((chat) => (pinnedList ? chat.pinned : !chat.pinned))
-					.map((_, index) => (
-						<ChatListItem key={index} index={index} />
-					))}
+				{chats.map((chat, index) => {
+					if ((pinned && chat.pinned) || (!pinned && !chat.pinned))
+						return <ChatListItem key={index} index={index} />;
+				})}
 			</div>
 		</>
 	);

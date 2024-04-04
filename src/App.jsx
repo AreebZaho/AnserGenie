@@ -55,8 +55,6 @@ export default function App() {
 	useEffect(() => {
 		setMessagesCount(messages.length);
 		// console.log(
-		// 	"chats:",
-		// 	chats,
 		// 	"msgs:",
 		// 	messages,
 		// 	"cnt: ",
@@ -74,7 +72,7 @@ export default function App() {
 
 	useEffect(() => {
 		localStorage.setItem("chats", JSON.stringify(chats));
-		console.log("localstorage chats updated", chats);
+		// console.log("localstorage chats updated", chats);
 	}, [chats]);
 
 	//used by New Chat button in Sidebar as well
@@ -99,9 +97,16 @@ export default function App() {
 				i === index ? {...chat, pinned: !chat.pinned} : chat
 			)
 		);
+		// console.log(
+		// "activeIdx:",
+		// activeChatIndex,
+		// "messages:",
+		// messages,
+		// );
 	};
 
 	const deleteChat = (index) => {
+		if (chats[index].pinned) setPinnedChatsCount((prev) => prev - 1);
 		if (chats.length > 1) {
 			setChatStarted(chats[index ? 0 : 1].msgs.length ? true : false);
 			setChats((allChats) => allChats.filter((_, i) => i !== index));

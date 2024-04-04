@@ -1,5 +1,6 @@
 import ChatList from "./ChatList";
 import {useContxt} from "../contexts/context";
+import {useEffect} from "react";
 
 export default function Sidebar() {
 	const {
@@ -13,6 +14,8 @@ export default function Sidebar() {
 		startNewChat,
 		pinnedChatsCount,
 	} = useContxt();
+
+	useEffect(() => {}, [pinnedChatsCount]);
 
 	return (
 		<div
