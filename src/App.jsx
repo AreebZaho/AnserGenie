@@ -38,7 +38,7 @@ export default function App() {
 	const [input, setInput] = useState("");
 	const [chatStarted, setChatStarted] = useState(
 		localStorage.getItem("chats") &&
-			JSON.parse(localStorage.getItem("chats"))[0].length
+			JSON.parse(localStorage.getItem("chats"))[0].msgs.length
 	);
 
 	const [result, setResult] = useState("");
