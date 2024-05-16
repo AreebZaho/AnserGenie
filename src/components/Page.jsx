@@ -1,11 +1,16 @@
 import logo from "../assets/logo.png";
 import Search from "./Search";
-import {useContxt} from "../contexts/context";
 import ActiveChat from "./ActiveChat";
+import {useSelector, useDispatch} from "react-redux";
+import {setSidebarExpanded} from "../features";
 
 export default function Page() {
-	const {chatStarted, windowWidth, sidebarExpanded, setSidebarExpanded} =
-		useContxt();
+	const dispatch = useDispatch();
+	const chatStarted = useSelector((state) => state.chatStarted.chatStarted);
+	const windowWidth = useSelector((state) => state.windowWidth.windowWidth);
+	const sidebarExpanded = useSelector(
+		(state) => state.sidebarExpanded.sidebarExpanded
+	);
 
 	return (
 		<div className="flex flex-1">
@@ -16,23 +21,20 @@ export default function Page() {
 					(sidebarExpanded ? "fa-close" : "fa-bars")
 				}
 				onClick={() => {
-					setSidebarExpanded(!sidebarExpanded);
-				}}
-			></i>
+					dispatch(setSidebarExpanded(!sidebarExpanded));
+				}}></i>
 
 			<div className="relative flex-1 h-screen">
 				<header
 					className={
 						"flex justify-between w-full px-4 py-3 dark:bg-slate-800 shadow-md " +
 						(chatStarted ? "" : "mb-6")
-					}
-				>
+					}>
 					<div
 						className={
 							"flex items-center gap-2 text-lg " +
 							(windowWidth <= 1024 ? "ml-10 xs:ml-14" : "")
-						}
-					>
+						}>
 						<a href="/" className="flex items-center gap-2">
 							<img src={logo} alt="" className="h-6" />
 							<p
@@ -42,8 +44,7 @@ export default function Page() {
 										"-webkit-linear-gradient(16deg, #4b90ff, #ff5546)",
 									WebkitBackgroundClip: "text",
 									WebkitTextFillColor: "transparent",
-								}}
-							>
+								}}>
 								AnserGenie
 							</p>
 						</a>
@@ -52,8 +53,7 @@ export default function Page() {
 						<div className="flex gap-4 [&_a]:flex [&_a]:items-center [&_a]:justify-center [&>a]:h-5 [&>a]:aspect-square justify-center">
 							<a
 								href="https://www.linkedin.com/in/areebzahoori/"
-								target="_blank"
-							>
+								target="_blank">
 								<i className="fa-brands fa-linkedin"></i>
 							</a>
 							<a href="https://github.com/AreebZaho/AnserGenie" target="_blank">
