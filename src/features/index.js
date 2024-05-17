@@ -1,6 +1,6 @@
-import {setActiveChatIndex} from "./activeChatIndexSlice";
-import {setMessages, addMessage, updateLastMessage} from "./messagesSlice";
-import {setChatStarted} from "./chatStartedSlice";
+import { setActiveChatIndex } from "./activeChatIndexSlice";
+import { setMessages, addMessage, updateLastMessage } from "./messagesSlice";
+import { setChatStarted } from "./chatStartedSlice";
 import {
 	setChats,
 	setMessagesAtActiveChatIndex,
@@ -13,12 +13,12 @@ import {
 	incPinnedChatsCount,
 	decPinnedChatsCount,
 } from "./pinnedChatsCountSlice";
-import {setInput} from "./inputSlice";
-import {setLoadingRes} from "./loadingResSlice";
-import {setMessagesCount, incMessagesCount} from "./messagesCountSlice";
-import {setResult} from "./resultSlice";
-import {setSidebarExpanded} from "./sidebarExpandedSlice";
-import {setWindowWidth} from "./windowWidthSlice";
+import { setInput } from "./inputSlice";
+import { setLoadingRes } from "./loadingResSlice";
+import { setMessagesCount, incMessagesCount } from "./messagesCountSlice";
+import { setResult } from "./resultSlice";
+import { setSidebarExpanded } from "./sidebarExpandedSlice";
+import { setWindowWidth } from "./windowWidthSlice";
 
 export {
 	setActiveChatIndex,

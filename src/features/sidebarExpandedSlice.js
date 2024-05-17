@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const sidebarExpandedSlice = createSlice({
 	name: "sidebarExpanded",
@@ -12,6 +12,6 @@ export const sidebarExpandedSlice = createSlice({
 	},
 });
 
-export const {setSidebarExpanded} = sidebarExpandedSlice.actions;
+export const { setSidebarExpanded } = sidebarExpandedSlice.actions;
 
 export default sidebarExpandedSlice.reducer;

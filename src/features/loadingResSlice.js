@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const loadingResSlice = createSlice({
 	name: "loadingRes",
@@ -12,6 +12,6 @@ export const loadingResSlice = createSlice({
 	},
 });
 
-export const {setLoadingRes} = loadingResSlice.actions;
+export const { setLoadingRes } = loadingResSlice.actions;
 
 export default loadingResSlice.reducer;

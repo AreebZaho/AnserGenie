@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const messagesCountSlice = createSlice({
 	name: "messagesCount",
@@ -19,6 +19,7 @@ export const messagesCountSlice = createSlice({
 	},
 });
 
-export const {setMessagesCount, incMessagesCount} = messagesCountSlice.actions;
+export const { setMessagesCount, incMessagesCount } =
+	messagesCountSlice.actions;
 
 export default messagesCountSlice.reducer;

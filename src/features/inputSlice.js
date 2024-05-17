@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const inputSlice = createSlice({
 	name: "input",
@@ -12,6 +12,6 @@ export const inputSlice = createSlice({
 	},
 });
 
-export const {setInput} = inputSlice.actions;
+export const { setInput } = inputSlice.actions;
 
 export default inputSlice.reducer;

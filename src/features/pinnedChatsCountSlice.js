@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const pinnedChatsCountSlice = createSlice({
 	name: "pinnedChatsCount",
@@ -19,7 +19,7 @@ export const pinnedChatsCountSlice = createSlice({
 	},
 });
 
-export const {incPinnedChatsCount, decPinnedChatsCount} =
+export const { incPinnedChatsCount, decPinnedChatsCount } =
 	pinnedChatsCountSlice.actions;
 
 export default pinnedChatsCountSlice.reducer;

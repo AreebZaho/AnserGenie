@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import ChatListItem from "./ChatListItem";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
-export default function ChatList({title}) {
+export default function ChatList({ title }) {
 	const sidebarExpanded = useSelector(
 		(state) => state.sidebarExpanded.sidebarExpanded
 	);
@@ -23,7 +23,7 @@ export default function ChatList({title}) {
 				}>
 				{chats.map((chat, index) => {
 					if ((pinnedStatus && chat.pinned) || (!pinnedStatus && !chat.pinned))
-						return <ChatListItem key={index} index={index} />;
+						return <ChatListItem key={chat.id} index={index} />;
 				})}
 			</div>
 		</>

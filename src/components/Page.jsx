@@ -1,8 +1,8 @@
 import logo from "../assets/logo.png";
 import Search from "./Search";
 import ActiveChat from "./ActiveChat";
-import {useSelector, useDispatch} from "react-redux";
-import {setSidebarExpanded} from "../features";
+import { useSelector, useDispatch } from "react-redux";
+import { setSidebarExpanded } from "../features";
 
 export default function Page() {
 	const dispatch = useDispatch();

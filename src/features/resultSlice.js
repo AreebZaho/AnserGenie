@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const resultSlice = createSlice({
 	name: "result",
@@ -12,6 +12,6 @@ export const resultSlice = createSlice({
 	},
 });
 
-export const {setResult} = resultSlice.actions;
+export const { setResult } = resultSlice.actions;
 
 export default resultSlice.reducer;

@@ -1,20 +1,20 @@
-import {useEffect, useState, useRef} from "react";
+import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
-import {useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
 	setActiveChatIndex,
 	setMessages,
 	setChatStarted,
 	setChats,
-	addChat,
 	updateChatTitle,
 	togglePinChat,
 	deleteChat,
 	incPinnedChatsCount,
 	decPinnedChatsCount,
 } from "../features";
+import { startNewChat } from "../utils/startNewChat";
 
-export default function ChatListItem({index}) {
+export default function ChatListItem({ index }) {
 	const dispatch = useDispatch();
 	const loadingRes = useSelector((state) => state.loadingRes.loadingRes);
 	const messages = useSelector((state) => state.messages.messages);
@@ -75,12 +75,7 @@ export default function ChatListItem({index}) {
 			dispatch(deleteChat(index));
 		} else {
 			dispatch(setChats([]));
-			//start new chat
-			dispatch(setChatStarted(false));
-			dispatch(setActiveChatIndex(0));
-			dispatch(setMessages([]));
-			dispatch(addChat());
-			window.innerWidth > 1024 && document.querySelector(".search").focus();
+			startNewChat(dispatch);
 		}
 	};
 
@@ -103,7 +98,7 @@ export default function ChatListItem({index}) {
 					<p
 						ref={titleRef}
 						className="w-full h-6 mt-1 overflow-x-auto text-xs text-nowrap chatListTitle focus:outline-none"
-						dangerouslySetInnerHTML={{__html: title}}></p>
+						dangerouslySetInnerHTML={{ __html: title }}></p>
 				</div>
 				<div
 					ref={chatSettingsTogglerRef}
@@ -137,7 +132,7 @@ export default function ChatListItem({index}) {
 							"fa-solid " +
 							(chats[index].pinned ? "fa-ban -mr-1" : "fa-thumbtack -mr-0.5")
 						}
-						style={{color: "rgb(59, 130, 246"}}></i>
+						style={{ color: "rgb(59, 130, 246" }}></i>
 					<p>{chats[index].pinned ? "Unpin" : "Pin"}</p>
 				</div>
 				<div
@@ -153,11 +148,11 @@ export default function ChatListItem({index}) {
 								chats[index].msgs[chats[index].msgs.length - 1].question ||
 								"<i>New Chat</i>"
 						);
-						dispatch(updateChatTitle({index, title: propmtValue}));
+						dispatch(updateChatTitle({ index, title: propmtValue }));
 					}}>
 					<i
 						className="-mr-1 fa-solid fa-pen"
-						style={{color: "rgb(202, 138, 4"}}></i>
+						style={{ color: "rgb(202, 138, 4" }}></i>
 					<p>Rename</p>
 				</div>
 				<div
@@ -170,7 +165,7 @@ export default function ChatListItem({index}) {
 					}}>
 					<i
 						className="-mr-0.5 fa-solid fa-trash"
-						style={{color: "rgb(220, 38, 38"}}></i>
+						style={{ color: "rgb(220, 38, 38" }}></i>
 					<p>Delete</p>
 				</div>
 			</div>

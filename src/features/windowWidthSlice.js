@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const windowWidthSlice = createSlice({
 	name: "windowWidth",
@@ -12,6 +12,6 @@ export const windowWidthSlice = createSlice({
 	},
 });
 
-export const {setWindowWidth} = windowWidthSlice.actions;
+export const { setWindowWidth } = windowWidthSlice.actions;
 
 export default windowWidthSlice.reducer;

@@ -1,11 +1,11 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 import Page from "./components/Page";
-import {useSelector, useDispatch} from "react-redux";
-import {setMessagesCount} from "./features/messagesCountSlice";
-import {setWindowWidth} from "./features/windowWidthSlice";
-import {setSidebarExpanded} from "./features/sidebarExpandedSlice";
-import {setMessagesAtActiveChatIndex} from "./features/chatsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { setMessagesCount } from "./features/messagesCountSlice";
+import { setWindowWidth } from "./features/windowWidthSlice";
+import { setSidebarExpanded } from "./features/sidebarExpandedSlice";
+import { setMessagesAtActiveChatIndex } from "./features/chatsSlice";
 //startnewchat shared by sidebar and delete func
 export default function App() {
 	useEffect(() => {
@@ -43,7 +43,7 @@ export default function App() {
 		// console.log("messages changed");
 		// console.log(...messages);
 		dispatch(setMessagesCount(messages.length));
-		dispatch(setMessagesAtActiveChatIndex({activeChatIndex, messages}));
+		dispatch(setMessagesAtActiveChatIndex({ activeChatIndex, messages }));
 	}, [messages]);
 
 	useEffect(() => {

@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const chatStartedSlice = createSlice({
 	name: "chatStarted",
@@ -6,7 +6,9 @@ export const chatStartedSlice = createSlice({
 		chatStarted:
 			localStorage.getItem("chats") &&
 			JSON.parse(localStorage.getItem("chats")).length &&
-			JSON.parse(localStorage.getItem("chats"))[0].msgs.length ? true : false,
+			JSON.parse(localStorage.getItem("chats"))[0].msgs.length
+				? true
+				: false,
 	},
 	reducers: {
 		setChatStarted: (state, action) => {
@@ -15,6 +17,6 @@ export const chatStartedSlice = createSlice({
 	},
 });
 
-export const {setChatStarted} = chatStartedSlice.actions;
+export const { setChatStarted } = chatStartedSlice.actions;
 
 export default chatStartedSlice.reducer;

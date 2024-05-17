@@ -1,4 +1,4 @@
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import activeChatIndexReducer from "../features/activeChatIndexSlice";
 import chatStartedReducer from "../features/chatStartedSlice";
 import inputReducer from "../features/inputSlice";

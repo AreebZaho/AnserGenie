@@ -1,12 +1,6 @@
 import ChatList from "./ChatList";
-import {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {
-	setChatStarted,
-	setActiveChatIndex,
-	setMessages,
-	addChat,
-} from "../features";
+import { useSelector, useDispatch } from "react-redux";
+import { startNewChat } from "../utils/startNewChat";
 
 export default function Sidebar() {
 	const dispatch = useDispatch();
@@ -20,16 +14,6 @@ export default function Sidebar() {
 		(state) => state.sidebarExpanded.sidebarExpanded
 	);
 	const chats = useSelector((state) => state.chats.chats);
-
-	useEffect(() => {}, [pinnedChatsCount]);
-
-	const startNewChat = () => {
-		dispatch(setChatStarted(false));
-		dispatch(setActiveChatIndex(0));
-		dispatch(setMessages([]));
-		dispatch(addChat());
-		window.innerWidth > 1024 && document.querySelector(".search").focus();
-	};
 
 	return (
 		<div
@@ -89,7 +73,7 @@ export default function Sidebar() {
 					(!chatStarted || loadingRes ? "cursor-not-allowed" : "")
 				}
 				onClick={() => {
-					if (!loadingRes && chatStarted) startNewChat();
+					if (!loadingRes && chatStarted) startNewChat(dispatch);
 				}}>
 				<i className="fa-solid fa-plus"></i>
 				<p className={"text-nowrap " + (sidebarExpanded ? "" : "hidden")}>

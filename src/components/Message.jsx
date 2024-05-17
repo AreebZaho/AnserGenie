@@ -1,11 +1,11 @@
 import logo from "../assets/logo.png";
 import PropTypes from "prop-types";
 import Loader from "./Loader";
-import {useEffect, useState} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {setResult, updateLastMessage} from "../features";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setResult, updateLastMessage } from "../features";
 
-export default function Message({question, answer, populationDone, index}) {
+export default function Message({ question, answer, populationDone, index }) {
 	const dispatch = useDispatch();
 	const result = useSelector((state) => state.result.result);
 	const messages = useSelector((state) => state.messages.messages);
@@ -14,8 +14,8 @@ export default function Message({question, answer, populationDone, index}) {
 		if (populationDone === 2) return;
 		else if (populationDone === 0) setPopulatedRes(result);
 		else {
-			dispatch(updateLastMessage({key: "answer", val: result}));
-			dispatch(updateLastMessage({key: "populationDone", val: 2}));
+			dispatch(updateLastMessage({ key: "answer", val: result }));
+			dispatch(updateLastMessage({ key: "populationDone", val: 2 }));
 			dispatch(setResult(""));
 		}
 	}, [result, populationDone]);

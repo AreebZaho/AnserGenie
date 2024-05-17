@@ -1,6 +1,6 @@
 import runChat from "../config/gemini";
-import {useEffect, useId} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import { useEffect, useId } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
 	setInput,
 	setChatStarted,
@@ -33,7 +33,7 @@ export default function Search() {
 				}, i * 50);
 			}
 			setTimeout(() => {
-				dispatch(updateLastMessage({key: "populationDone", val: 1}));
+				dispatch(updateLastMessage({ key: "populationDone", val: 1 }));
 				resolve();
 			}, size * 50);
 		});
@@ -66,7 +66,7 @@ export default function Search() {
 							dispatch(incMessagesCount());
 							dispatch(setLoadingRes(true));
 							dispatch(
-								addMessage({question: input, answer: "", populationDone: 0})
+								addMessage({ question: input, answer: "", populationDone: 0 })
 							);
 							dispatch(setInput(""));
 							try {

@@ -1,7 +1,7 @@
 import Card from "./Card";
 import cardDetails from "../constants/cardDetails";
 import Message from "./Message";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function ActiveChat() {
 	const messages = useSelector((state) => state.messages.messages);
@@ -27,7 +27,7 @@ export default function ActiveChat() {
 					</div>{" "}
 				</>
 			) : (
-				messages.map(({question, answer, populationDone}, index) => (
+				messages.map(({ question, answer, populationDone }, index) => (
 					<Message
 						key={index}
 						question={question}

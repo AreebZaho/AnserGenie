@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const activeChatIndexSlice = createSlice({
 	name: "activeChatIndex",
@@ -12,6 +12,6 @@ export const activeChatIndexSlice = createSlice({
 	},
 });
 
-export const {setActiveChatIndex} = activeChatIndexSlice.actions;
+export const { setActiveChatIndex } = activeChatIndexSlice.actions;
 
 export default activeChatIndexSlice.reducer;
