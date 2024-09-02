@@ -51,11 +51,6 @@ export default function Page() {
 					</div>
 					<div className="flex items-center gap-4 xs:gap-6">
 						<div className="flex gap-4 [&_a]:flex [&_a]:items-center [&_a]:justify-center [&>a]:h-5 [&>a]:aspect-square justify-center">
-							<a
-								href="https://www.linkedin.com/in/areebzahoori/"
-								target="_blank">
-								<i className="fa-brands fa-linkedin"></i>
-							</a>
 							<a href="https://github.com/AreebZaho/AnserGenie" target="_blank">
 								<i className="fa-brands fa-github"></i>
 							</a>
